@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/add-news" class="btn btn-primary " role="button">Создать новость</a>
+{% for i in news if i.title %}
+<div>
+    <h2>{{ i.title }}</h2>
+    <p>{{ i.content }}</p>
+</div>
+{% endfor %}
+{% endblock %}
+
