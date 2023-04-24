@@ -152,7 +152,7 @@ def avatar():
         user = db_sess.query(User).filter(User.id == current_user.id).first()
         user.avatar = f.filename
         db_sess.commit()
-        return "Форма отправлена"
+        return redirect('/')
 
 
 @app.route('/out')
