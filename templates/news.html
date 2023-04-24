@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/add-news" class="btn btn-primary " role="button">Создать новость</a>
+<div class="mt-3">
+    {% for i in news if i.title %}
+    <div>
+        <a href="/news/{{i.id}}">
+            <h2>{{ i.title }}</h2>
+        </a>
+        <p>{{ i.content }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+

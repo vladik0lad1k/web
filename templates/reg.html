@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/reg">
+    <div class="mb-3">
+        <label for="username" class="form-label" style="font-family: Roboto; font-size: 26px; text-align:center">Никнейм</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Введите никнейм">
+        {% if message %}
+            <span style="color: red">{{message}}</span>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label" style="font-family: Roboto; font-size: 26px; text-align:center">Пароль</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Введите пароль">
+    </div>
+    <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+</form>
+{% endblock %}

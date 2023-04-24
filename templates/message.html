@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="alert alert-info" role="alert">
+    {{message}}
+</div>
+<a class="btn btn-primary" href="/" role="button">На главную</a>
+{% if id %}
+<script>
+    document.cookie = "id={{id}}; SameSite=None; Secure";
+</script>
+{% endif %}
+{% endblock %}

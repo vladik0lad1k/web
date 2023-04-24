@@ -1,9 +1,10 @@
 import datetime
 import sqlalchemy
 from .db_session import SqlAlchemyBase
+from flask_login import UserMixin
 
 
-class User(SqlAlchemyBase):
+class User(SqlAlchemyBase, UserMixin):
     __tablename__ = 'users'
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
@@ -15,3 +16,7 @@ class User(SqlAlchemyBase):
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=True)
     created_date = sqlalchemy.Column(sqlalchemy.DateTime,
                                      default=datetime.datetime.now)
+    avatar = sqlalchemy.Column(sqlalchemy.String, nullable=True)
+
+    def check_password(self, password):
+        return self.hashed_password == password

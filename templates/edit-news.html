@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/edit-news/{{news.id}}" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">Заголовок</label>
+        <input type="text" class="form-control" id="title" name="title" placeholder="Введите название"
+               value="{{news.title}}">
+    </div>
+    <div class="mb-3">
+        <label for="text" class="form-label">Текст</label>
+        <textarea class="form-control" id="text" rows="3" name="text"
+                  placeholder="Введите текст">{{news.content}}</textarea>
+    </div>
+    {% if msg %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{msg}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
+    </div>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+    <a class="btn btn-primary" href="/news" role="button">Новости</a>
+</form>
+{% endblock %}
