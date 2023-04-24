@@ -2,11 +2,16 @@
 
 {% block content %}
 <a href="/add-news" class="btn btn-primary " role="button">Создать новость</a>
-{% for i in news if i.title %}
-<div>
-    <h2>{{ i.title }}</h2>
-    <p>{{ i.content }}</p>
+<div class="mt-3">
+    {% for i in news if i.title %}
+    <div>
+        <a href="/news/{{i.id}}">
+            <h2>{{ i.title }}</h2>
+        </a>
+        <p>{{ i.content }}</p>
+    </div>
+    {% endfor %}
 </div>
-{% endfor %}
+
 {% endblock %}
 

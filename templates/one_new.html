@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/news" class="btn btn-primary " role="button">Все новости</a>
+<div class="mt-3">
+    <div>
+        <h2>{{ news.title }}</h2>
+        <p>{{ news.content }}</p>
+        <p><b>Автор: </b> <a href="/profile/{{news.user.id}}">{{ news.user.name }}</a></p>
+
+    </div>
+    {%if current_user.id == news.user_id%}
+    <a href="/edit-news/{{news.id}}" class="btn btn-primary " role="button">Изменить</a>
+    <a href="/delete-news/{{news.id}}" class="btn btn-primary " role="button">Удалить</a>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
